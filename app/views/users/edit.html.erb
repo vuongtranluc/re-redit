@@ -1,0 +1,19 @@
+<h1>Hello</h1>
+<%= form_for(@user, url: user_path) do |f| %>
+  <%= f.label "Username: "%>
+  <%= f.text_field :username %><br>
+  <%= f.label "Email: "%>
+  <%= f.email_field :email %>
+  <%= f.label "Re_enter email: "%>
+  <%= f.email_field :email_confirmation%><br>
+  <%= f.label "Password: "%>
+  <%= f.password_field :password %><br>
+  <%= f.submit "Update"%>
+  <% if @user.errors.any?%>
+    <ul>
+      <%= @user.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
